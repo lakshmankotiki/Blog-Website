@@ -1,14 +1,21 @@
 <%- include('partials/header.ejs') -%>
 
-<h1>Home</h1>
+    <h1>Home</h1>
 
-<p> <%= home %> </p>
+    <p>
+        <%= home %>
+    </p>
 
-<h1> <%= postHeader %> </h1>
+    <% posts.forEach(function(item) { %>
+        <% console.log("item is: ", item.postTitle); %>
+            <h1>
+                <%= item.postTitle %>
+            </h1>
+            <p>
+                <%= item.postDescription %>
+            </p>
+            <% }) %>
 
-<p> <%= postDes %> </p>
-
-<% console.log('heheeh', JSON.stringify(posts)) %>
 
 
-<%- include('partials/footer.ejs') -%>
+                <%- include('partials/footer.ejs') -%>
