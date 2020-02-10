@@ -2,20 +2,24 @@
 
     <h1>Home</h1>
 
+    <!-- embedding the dynamic value from the server -->
     <p>
         <%= home %>
     </p>
 
+    <!-- adding script code and enclosing in scriptlet tag -->
     <% posts.forEach(function(item) { %>
         <% console.log("item is: ", item.postTitle); %>
             <h1>
                 <%= item.postTitle %>
             </h1>
             <p>
-                <%= item.postDescription %>
+                <%= item.postDescription.substring(0,100) + " ..." %>
+                <!-- adding href value dynamically -->
+                <a href="/posts/<%= item.postTitle %>">Read More</a>
             </p>
-            <% }) %>
+    <% }) %>
 
 
 
-                <%- include('partials/footer.ejs') -%>
+<%- include('partials/footer.ejs') -%>
